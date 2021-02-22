@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Todos v-bind:todos="todos"/>
+    <Todos v-bind:todos="todos" v-on:del-todo="deleteTodo"/>
   </div>
 </template>
 
@@ -12,29 +12,34 @@ export default {
   components: {
     Todos
   },
-  data(){
+  data() {
     return {
-      todos:[
+      todos: [
         {
-          id:1,
-          title:"Play some Guitar chords",
-          completed:false
+          id: 1,
+          title: "Play some Guitar chords",
+          completed: false
 
         },
         {
-          id:2,
-          title:"Get some exercise",
-          completed:true
+          id: 2,
+          title: "Get some exercise",
+          completed: true
 
         },
         {
-          id:2,
-          title:"Learn Vue js",
-          completed:false
+          id: 3,
+          title: "Learn Vue js",
+          completed: false
 
         },
 
       ]
+    }
+  },
+  methods: {
+    deleteTodo(id) {
+      this.todos = this.todos.filter(todo => todo.id !== id);
     }
   }
 };
@@ -46,6 +51,7 @@ export default {
   margin: 0;
   padding: 0;
 }
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.4;
