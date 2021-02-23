@@ -7,15 +7,15 @@
 </template>
 
 <script>
-import Header from './components/layout/Header'
-import Todos from './components/Todos.vue';
+
+import Todos from '../components/Todos.vue';
 import AddTodo from "@/components/AddTodo";
 import axios from 'axios'
 
 export default {
   name: "App",
   components: {
-    Header,
+
     Todos,
     AddTodo
   },
